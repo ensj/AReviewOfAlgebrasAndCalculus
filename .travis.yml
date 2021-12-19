@@ -23,3 +23,13 @@ before_install:
     -in .dropbox_uploader.enc -out ~/.dropbox_uploader -d
   - chmod +x dropbox_uploader.sh
   - “./dropbox_uploader.sh upload _build/main.pdf LaTeX-JHLTexts/textbook-latest.pdf”
+
+before_deploy:
+  - git config — local user.name “ensj”
+  - git config — local user.email “ensjtrans@gmail.com”
+  - export LATEST_TAG=$(git describe — tags)
+  - echo $LATEST_TAG
+  - chmod +x genTag.sh
+  - export TRAVIS_TAG=$(./genTag.sh ${LATEST_TAG})
+  - git tag $TRAVIS_TAG
+  - echo $TRAVIS_TAG
