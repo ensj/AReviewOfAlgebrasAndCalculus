@@ -9,7 +9,7 @@ tex-config:
   - build-pattern=main.tex
   #- latexmk-flags=-dvi -f
   # Check at https://www.ctan.org/pkg/package-name in which TeX Live package a LaTeX package is contained.
-  - packages=scrbook, amsfonts, amsmath, amsthm, amscls, inputenc, epigraph, natbib, amsfonts
+  - packages=koma-script, scrbook, amsfonts, amsmath, amsthm, amscls, inputenc, epigraph, natbib, amsfonts
 
 # We will use the docker image from https://hub.docker.com/r/phpirates/texlive-latexbuild/
 script:
