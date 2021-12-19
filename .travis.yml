@@ -13,8 +13,13 @@ env:
   global:
     secure: qtLWz+MjMVX397bMEFYRUrB1xD/xCrSgLpMMxN4zJ86+V8vdqiFh0HETAcT/YzD1w4YGeccLoPco/YjX59GXuu/ocvQL9Mjk66UgiiBl3IEM2W2bLU4zupXUvENsH3eiLMIejHtJLTNuCk5gpne/lTJeBiDv4ix2qhO8YPrhzbnRsAY9kmAXGk7o/TJwHZAx4Q0JNVRY4iSSmc4cLpFuTSin772QcFT9YWh4rfSXz1gLVigIYu4qseC4pDD7qVjNlfT+WVPdQD9LLVQtpzppQoR5uX8rtTarZqSv58Due46jTcrexsLP8wzC8ral9C4s7wL1vcADPIPmP87tmozZIH7yqFanCretzdniop3qkZtWZ2DZyCJAB0GaCFCrlsu5YWuQYYrp2/Xkk0vWtrwhB634WKjc3pQkPALmE+Sl/a6UELY2HijADn67ag4JnQ4mjwE9r7ZtLq2sOGKgd+NGZHnCoe3NHi+jkYc8vbX5zAyA/LbQJq1mFLMGdzYaBc/pWuLer+jVIjj08B8isIAitZdaeS6+oLRIYPDlxGTc/QaKh1SXHigLkCoVokH5vhWLEhV46Z4/oQ9In9BkTiS8MxWVEHTFo/FWCQpUY9v0FJFw78UKtEZ7FPUMZ+IZa2pybyLP5NO724x6FrXJW1S9cAzLi3e8ESkz1Z6HqRN2Fpk=
   file:
-    - ./main.pdf
+    - './main.pdf'
   skip_cleanup: true
   on:
     tags: true
     branch: master
+before_install:
+  - openssl aes-256-cbc -K $encrypted_b0a652eeedd9_key -iv $encrypted_b0a652eeedd9_iv
+    -in .dropbox_uploader.enc -out ~/.dropbox_uploader -d
+  - chmod +x dropbox_uploader.sh
+  - “./dropbox_uploader.sh upload _build/main.pdf LaTeX-JHLTexts/textbook-latest.pdf”
