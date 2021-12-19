@@ -1,0 +1,295 @@
+\documentclass{scrbook}
+\usepackage{natbib}
+\setkomafont{author}{\scshape}
+\usepackage{epigraph} 
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{proposition}{Proposition}
+\newtheorem{approach}{Approach}
+\newtheorem{example}{Example}
+
+\newtheorem{exerciseinner}{Exercise}
+\newenvironment{exercise}[1]{%
+  \renewcommand\theexerciseinner{#1}%
+  \exerciseinner
+}{\endexerciseinner}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\subject{A Mathematics Review}
+\title{A Survey of Basic Algebra and Single-Variable Calculus}
+\subtitle{The Indefinitive Guide}
+\author{Junhyun Lim\thanks{I never procrastinate}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This is a series of lecture notes to-be-updated continuously for you, the reader. As the text assumes some knowledge of algebra and calculus, it will instead focus more so on review of the material and in-depth approach to their concepts. 
+
+The book may skip several topics deemed unimportant to review depending on your knowledge and background as an accounting major. However, if you wish to learn more about a given topic, feel free to ask. A section will be added when appropriate and you will be shortly notified once completed. 
+
+As this is the first time I'm writing a lengthy piece of educational purposes, a lot of topics may seem scattered and confusing. Sometimes a section might be way too confusing to understand. I would love to have a remedy for this, but I don't. Just as I have to deal with you, you will have to deal with me. 
+
+Just kidding, message me and we can talk about it.
+
+The exercises are important, do them.
+
+\vspace{10mm}
+
+Junhyun Lim
+
+\chapter{Preliminary Knowledge}
+\epigraph{It is not knowledge, but the act of learning, not possession, but the act of getting there, which grants the greatest enjoyment.}{\textit{Carl Friedrich Gauss}}
+
+Before we dive straight into algebra, we'll start by covering some prerequisites. Here I'll explain topics you may have missed before learning algebra, and explain some things I will expect out of you as a student. 
+
+\section{On The Topic of Functions}
+
+Speaking boldly, a function relates one set to the other. Speaking simply, a function is a machine that takes in an input value and outputs a value. In this section, we'll take a very brief look at what functions actually are, and take a look at what type of functions we'll be exploring from now on. 
+
+\subsection{Definition of a Function}
+
+\begin{definition}
+A function $f$ from set $X$ to set $Y$ assigns elements of $Y$ to specific elements of $X$. Thus, for an element $y \in Y$ (the $\in$ notates that $y$ is an element of $Y$), there may exist an $x \in X$ such that $f(x) = y$. 
+\end{definition}
+
+Thus, every value in $X$ has a corresponding value, mapped by $f$, in $Y$. The input set $X$ is called the \textit{domain}. The output set $Y$ is the \textit{image of f} or \textit{range}.
+
+Oftentimes, a function may be notated as shown below. I trust that I don't have to explain what this means, since I just did so.
+\begin{align*}
+    f: X \longrightarrow Y
+\end{align*}
+
+X and Y can be pretty much anything as long as it is a proper set. Here are some functions that you might find pretty fun to think about. 
+
+\begin{example}
+The function $f: \R \longrightarrow \{0, 1\}$, where $f$ maps rational numbers to 1, and irrational numbers to 0. Here $\R$ means the set of real numbers.
+\end{example}
+
+\begin{example}
+The function $f(x) = \sin(x)$. The domain of $f$ is the set of real numbers, $\R$. The range of $f$ is the closed interval $[0, 1]$. 
+\end{example}
+
+A requirement for a domain of a function is that \textit{every value of the domain} must be accepted by the function. The image of a function has the requirement that every value in the range must be an output of some input value of the function. 
+
+There is a reason why we defined functions as an assignment of the elements of $Y$ to the elements of $X$. Functions have a specific requirement that an input value cannot map to two values at once, you may recall the vertical line test as an example of this requirement. If a graph of a function has 2 y values on the same x value, it is not a function at all.
+
+\subsection{Functions in Algebra and Calculus}
+
+In this book, we'll principally be concerned with functions that deal with real numbers. It will be assumed that our functions are all in the form $f : \R \longrightarrow \R$ for our purpose, especially so since we're dealing with single-variable calculus. Here are several examples of them.
+
+\begin{example}
+$f(x) = x^2$
+\end{example}
+
+\begin{example}
+$f(x) = \cos(x)$
+\end{example}
+
+\begin{example}
+$f(x) = e^x$
+\end{example}
+
+In multivariable calculus, we deal with functions of the form $f : \R^n \longrightarrow \R^m$. 
+\begin{align*}
+    f(x_1, x_2, ..., x_n) = (y_1, y_2, ..., y_m)
+\end{align*}
+
+We probably won't ever get into these, so you don't really have to worry about them. 
+
+\section{Fractions}
+
+Though frightful to hear, I've unfortunately been alerted by a few people that many college students don't even know how to do simple arithmetic with rational numbers. Here we'll briefly go over the topic.
+
+\subsection{What is a rational number?}
+
+\begin{definition}
+A \textit{rational number} is a number that can be represented as a fraction $\frac{p}{q}$ of two integers. $p$ is denoted the numerator of the fraction, while $q$ is denoted the denominator. 
+\end{definition}
+
+Just to make it abundantly clear, rational numbers \textbf{are} fractions. It's possible to do arithmetic with them, as you might have already learned in middle school. Here we'll very quickly review and strengthen these concepts. We'll go over multiplication first, since it is much, much easier than addition.
+
+\begin{align*}
+    \frac{a}{b} * \frac{c}{d} &= \frac{ac}{bd}
+\end{align*}
+
+Here's how to add two rational numbers together. The biggest thing to be careful of is to make sure that the denominators of the two fractions are equal.
+
+\begin{align*}
+    \frac{a}{b} + \frac{c}{d} &= \frac{a}{b} * \frac{d}{d} + \frac{c}{d} * \frac{b}{b}\\
+    &= \frac{ad}{bd} + \frac{bc}{bd}\\
+    &= \frac{ad + bc}{bd}
+\end{align*}
+
+It's important to note that division and subtraction is just a special case of multiplication and addition. For example, division is simply equal to the following.
+\begin{align*}
+    a \div b = a * \frac{1}{b}
+\end{align*}
+Likewise, subtraction is just a special case of addition.
+\begin{align*}
+    a - b = a + (-b)
+\end{align*}
+It is trivial to apply this knowledge to see how division and subtraction works for the rationals. As a matter of fact, fractional division would devolve into the following.
+
+\begin{align*}
+    \frac{a}{b} \div \frac{c}{d} &= \frac{a}{b} * \frac{1}{\frac{c}{d}} \\
+    &= \frac{a}{b} * \frac{d}{c} \\
+    &= \frac{ad}{bc}
+\end{align*}
+
+Let's take a look at fractional subtraction. 
+
+\begin{align*}
+    \frac{a}{b} - \frac{c}{d} &= \frac{a}{b} + \frac{-c}{d}\\
+    &= \frac{a}{b} * \frac{d}{d} + \frac{-c}{d} * \frac{b}{b}\\
+    &= \frac{ad}{bd} + \frac{-bc}{bd}\\
+    &= \frac{ad - bc}{bd}
+\end{align*}
+
+Thus we have characterized the four arithmetic operations in the rationals. Let's move on.
+
+\section{Irrational Numbers}
+
+Content under construction.
+
+\section{Notes on Approximation}
+
+In high school and perhaps even a part of college, you were probably taught to \textit{approximate the solution to n significant figures} given a problem. The following is an example and the solution to a problem a student might encounter.
+
+\begin{example}
+Compute $\ln(25)$. Round up to 3 significant figures.
+\end{example}
+\textbf{Solution.}
+\begin{align*}
+    \ln(25) &= 2\ln(5)\\
+            &= 2(1.60943791243...)\\
+            &= 3.219
+\end{align*}
+
+Approximations are a handy skill to have for the sciences. It's hardly useful for math, however. Approximating an answer gives an inaccurate solution and makes it difficult for both the instructor and the student to check whether or not it is actually correct. In example, the answer $2\ln(5)$ would have been absolutely sufficient as a solution. 
+
+Thus for the rest of the book, we will assume that exercises that come with computations will not require approximations. It is completely fine to leave fractions as fractions, $\pi$ as $\pi$, et cetera. \textbf{Any answers to exercises that get approximated will be marked wrong.}
+
+That being said, if you would like to learn more about scientific approximations to computations, I could write up a short article explaining it. It will detail methods to calculate the accuracy of your approximation, and how this accuracy might blow up when you use the approximation for different calculations.
+
+\section{Practicing Good Mathematics}
+
+This leads us to the final section in this chapter, \textit{practicing good mathematics}. The topic of communicating mathematics is just as important as doing mathematics. After all, what use is there in writing incoherent solutions to problems if no one can verify your work? Here we will explore some of the skills you may want to pick up when writing down your work.
+
+\subsection{Consider your audience}
+
+The age-old concept for writing essays applies just as well for writing mathematics. When you write a solution, a proof, or even an explanation of a concept, \textit{consider who you are writing for}. Are you writing this for your instructor? A fellow student? Yourself? Depending on who your audience is, your work might get maximally confusing for some. 
+
+Consider this book for example. I am writing this book with a very specific person in mind as my audience. As a result, I want the content of this book to be digestible for a person who hasn't had the traditional education of mathematics. It should be easy to follow, and easy to read. Hopefully I'm doing a pretty good job at that. Let me know otherwise.
+
+On that note, it might help to specify a specific \textit{person} as your audience when you're writing. In your case, this shouldn't be too difficult-- you're writing to me, the author. When you're writing solutions, consider the type of writing I might appreciate. Try not to get too wordy. Don't throw around meaningless symbols without explaining what they do. You don't have to explain elementary concepts to me from scratch, since I (hopefully) should know them already. Keep this in mind as you write, and you'll be fine.
+
+\subsection{Explain what you're doing}
+
+This is traditionally what a teacher means when they tell you to show your work. It gets impossibly difficult to tell whether or not you actually understood the material if you don't show your steps properly. 
+
+Here are two solutions to an elementary derivation problem. Hopefully you can tell which one is a better solution even without understanding how the work was done. 
+
+In the below example, the notation $\frac{df}{dx}$ and $f'(x)$ notates the derivative of the function $f$ with regards to the variable $x$. If you don't really know what that means, don't worry about it.
+
+\begin{example}
+Compute $\frac{df}{dx}$ given $f(x) = \frac{6x^2}{2-x}$.
+\end{example}
+
+\textbf{Solution 1.}
+\begin{align*}
+    f'(x) = \frac{6x(4-x)}{(2-x)^2}
+\end{align*}
+
+\textbf{Solution 2.}
+\begin{align*}
+    f'(x) &= \frac{d}{dx}\left(\frac{6x^2}{2-x}\right)\\
+        &= \frac{(2-x)\frac{d}{dx}(6x^2) - 6x^2\frac{d}{dx}(2-x)}{(2-x)^2} \text{ (quotient rule)}\\
+        &= \frac{(2-x)(12x) - 6x^2(-1)}{(2-x)^2}\\
+        &= \frac{(24x-12x^2) + 6x^2}{(2-x)^2}\\
+        &= \frac{24x-6x^2}{(2-x)^2}\\
+        &= \frac{6x(4-x)}{(2-x)^2}\\
+\end{align*}
+
+That being said, keep in mind that you're writing to me. You don't have to precisely explain every single thing you're doing to solve a problem. 
+
+\subsection{Draft your work}
+
+It's a known fact that a first draft of anything is going to be a mess. Therefore, it's best that you keep a sheet for scratch work, and another sheet for writing down answers. 
+
+Keep your work organized, but don't try to write up a good answer from the get-go! Keep your first draft organized enough so that you can follow your work and refer back to it if needed.
+
+\subsection{References}
+
+This subsection took some references from Francis Su's \cite{su:2015} article on good mathematics. It also references Paul Halmos' \cite{halmos} essay on good writing, though I suspect this is much less useful for you than for me. 
+
+\section{Exercises}
+
+\begin{exercise}{1.5.1}
+Find the domain and range of $f(x) = \cos(x)$. Do the same for $g(x) = \tan(x)$. It will help for you to remember that $\tan(x) = \frac{\sin(x)}{\cos{x}}$. If you do not remember what trigonometric functions look like, you may use the graph to help you out. 
+\end{exercise}
+
+\begin{exercise}{1.5.2}
+Find the domain and range of $f(x) = x^2$.
+\end{exercise}
+
+\begin{exercise}{1.5.3}
+Find the domain and range of $f(x) = 1$.
+\end{exercise}
+
+\begin{exercise}{1.5.4}
+Consider the function $x^2 + y^2 = 25$. Is this a valid function? Why or why not?
+\end{exercise}
+
+\begin{exercise}{1.5.5}
+Consider the function $f(x) = \pm\sqrt{x}$. Is this a valid function? Why or why not? 
+\end{exercise}
+
+\begin{exercise}{1.5.6}
+Compute $\frac{3}{7} + \frac{5}{11}$. 
+\end{exercise}
+
+\begin{exercise}{1.5.7}
+Compute $\frac{3}{96} + \frac{9}{36}$. 
+\end{exercise}
+
+\begin{exercise}{1.5.8}
+Compute $\frac{3}{7} * \frac{5}{11}$. 
+\end{exercise}
+
+\begin{exercise}{1.5.9}
+\textbf{Challenge.}
+Simplify $\frac{1}{(x+1)} + \frac{1}{(x-1)}$. 
+\end{exercise}
+
+\begin{exercise}{1.5.10}
+\textbf{Challenge.}
+Consider a function $f : \Q \longrightarrow \Z$ (recall $\Q$ is the set of rationals), where $f(\frac{p}{q}) = p * q$. Explain why $f$ is not a valid function. \textit{Hint: Notice that $\frac{1}{2} = \frac{2}{4} = \dots$}
+\end{exercise}
+
+\chapter{The Algebras}
+\epigraph{A lot of times, when kids have problems with algebra or trigonometry, it has nothing to do with the subject matter, has nothing to do with their innate intelligence. It's just they that they had some gaps in elementary school that they never got to fill in.}{Sal Khan}
+
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
