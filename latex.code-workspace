@@ -10,6 +10,14 @@
     "[latex]": {
       "editor.formatOnSave": false
     },
+    "latex-workshop.latex.tools": [
+      {
+        "name": "tectonic",
+        "command": "tectonic",
+        "args": ["--synctex", "--keep-logs", "-o=aux", "%DOC%.tex"],
+        "env": {}
+      }
+    ],
     "latex-workshop.latex.recipes": [
       {
         "name": "tectonic",
