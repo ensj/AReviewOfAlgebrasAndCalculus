@@ -9,6 +9,12 @@
     "latex-workshop.latex.outDir": "%DIR%/aux",
     "[latex]": {
       "editor.formatOnSave": false
-    }
+    },
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "tectonic",
+        "tools": ["tectonic"]
+      }
+    ]
   }
 }

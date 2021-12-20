@@ -1,12 +1,6 @@
 sudo: required
 language: generic
 services: docker
-tex-config:
-  - tex-scheme=small
-  - push-type=none
-  - build-pattern=main.tex
-  - packages=koma-script, scrbook, amsfonts, amsmath, amsthm, amscls, inputenc, epigraph,
-    biblatex, amsfonts
 script:
   - docker pull dxjoke/tectonic-docker
   - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 main.tex; biber main; tectonic main.tex"
