@@ -5,7 +5,7 @@ tex-config:
   - tex-scheme=small
   - push-type=none
   - build-pattern=main.tex
-  - packages=koma-script, scrbook, amsfonts, amsmath, amsthm, amscls, inputenc, epigraph,
+  - packages=koma-script, scrbook, amsfonts, amsmath, amsthm, amscls, inputenc, biber, epigraph,
     biblatex, amsfonts
 script:
   - docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind phpirates/texlive-latexbuild:small-2018
