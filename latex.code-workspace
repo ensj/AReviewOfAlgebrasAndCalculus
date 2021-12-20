@@ -5,6 +5,10 @@
     }
   ],
   "settings": {
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "latex-workshop.latex.outDir": "%DIR%/aux",
+    "[latex]": {
+      "editor.formatOnSave": false
+    }
   }
 }
