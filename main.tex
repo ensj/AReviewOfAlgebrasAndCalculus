@@ -6,6 +6,10 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[section]
@@ -59,44 +63,173 @@ Junhyun Lim
 \chapter{The Algebras}
 \epigraph{A lot of times, when kids have problems with algebra or trigonometry, it has nothing to do with the subject matter, has nothing to do with their innate intelligence. It's just they that they had some gaps in elementary school that they never got to fill in.}{Sal Khan}
 
-In this chapter we'll explore some basic algebra concepts. I trust that you know the most basic ones, such as linear equations and inequalities, so we'll work on the other non-trivial parts of algebra.
+Why do we care about Algebra? Perhaps the question isn't too difficult for you, given your accounting background. Algebra is the backbone of mathematics, and it's what gets used to solve countless numerical problems that require logic. Any time you need to know the solution of an equation, or when you need to consider the behaviors and the quantities of these solutions, Algebra is what gets used to uncover these mysteries. 
+
+So in this chapter, we'll explore some of the ways this beautiful subject gets used in real life. Hopefully the examples will be able to motivate your studies as an accountant.
 
 \section{Systems of Equations}
 
-In this section, we'll cover how to solve systems of linear equations. We'll briefly cover solving a system by graphing, using substitution, and then we'll finally cover the general method of using elimination. The general method will uncover a linear algebra approach to solving these equations.
+What would a person do if they needed to find a common solution to a series of interconnected relationships? If the set of relationships mentioned happened to be a series of linear equations (which it very often is), then we have something called a \textit{System of Linear Equations}. Here we go over how to find the solutions to such problems. 
 
-\subsection{Introduction to Systems of Equations}
+\subsection{Introduction to System of Linear Equations}
 
-If you remember, a \textit{linear equation} is an equation for a line. Here are some examples of linear equations.
+Before we go anywhere with this idea, we must first discuss what a linear equation even is. You might remember from oh-so-long-ago that a linear equation might be a simple equation for a line. In the two-dimensional case where we just deal with x and y, this is true. But if we extend out to the third dimension, we see that an equation of a plane is a linear equation as well.
+
+So what is a linear equation, then?
+
+\begin{definition}
+  A \textit{linear equation} is an equation that may be put in the form 
+  \begin{align*}
+    a_0x_0 + a_1x_1 + \dots + a_nx_n + b = 0
+  \end{align*}
+  where the $a_i$ and $b$ are real constants, and $x_i$ are variables.
+\end{definition}
+
+Below are some examples of linear equations. Notice how the first three of the examples are all actually the same equations in different forms.
 
 \begin{example}
   \begin{enumerate}
     \item $y = 2(x + 5)$
     \item $y - 2x = 10$
     \item $y -2x -10 = 0$
+    \item $x + 5 = 0$
+    \item $x + y + z = 0$
+    \item $2x_0 + 3x_1 + 4x_2 + 5 = 0$
+    \item $x + z = 10$
+    \item $10x_0 + x_3 = 2$
   \end{enumerate}
 \end{example}
 
-A system of linear equations is when there are more than one of such linear equations working together. Here is one such example.
+A system of linear equations is when there are more than one of such linear equations in a set. Below is an example of such a system.
 
 \begin{example}
   \[
     \begin{cases}
-      x + y = 2
+      x + y = 2\\
       2x + 3y = 5
     \end{cases}
   \]
 \end{example}
 
-A principal interest concerning these systems of equations is to find a common solution satisfying all of these linear equations.
+A principal interest concerning these systems of equations is to find a common solution satisfying all of these linear equations. For example, the solution to the above system would be the pair $x = 1, y = 1$. 
+
+It's essential to note here that you don't always have a unique solution like we did here for a system of equations. As a matter of fact, it's a pretty special thing for a system of equations to have a unique solution. Here are two trivial systems where one has no solutions, and the other has infinitely many solutions. Can you see which is which?
+
+\begin{example}
+  \[
+    \begin{cases}
+      x + y = 0\\
+      x + y = 0
+    \end{cases}
+  \]
+\end{example}
+
+\begin{example}
+  \[
+    \begin{cases}
+      x + y = 0\\
+      x + y = 5
+    \end{cases}
+  \]
+\end{example}
+
+It would be nice if there was an algorithm we could work through in order to always find the solution(s) to any given system of equations. Well, you'll be elated to learn that our mathematicians have been very hard at work, and managed to come up with an algorithm just in time. But before we get there, we'll need to build some intuition by exploring different methods of finding the solutions to linear equations. 
 
 \subsection{Solving by Graphing}
 
+Barring the odd stuff like abstract and futurist art, it's often visual beauty that speaks out to us most vividly. Things aren't so different in mathematics. It's the visual proofs that makes the most intuitive sense to us. So, we shall start off our solution-finding journey from a geometric viewpoint.
 
+So long as we are working in up to three variables, we can graph any equation. Given one variable, we just plot a point in a line. Given two variables, we graph a line on a plane. Given three variables, we draw a plane in a 3-dimensional space. Given four variables... well, we don't have a way of graphing that visually. 
+
+So given a system of equations, we'll do the most obvious thing and graph all of the equations. Each graph of an equation will represent the set of solutions to that specific equation. Then, finding the solution to our system is as simple as finding the point where all our equations intersect. Let's consider the following system.
+
+\begin{example}
+  \[
+    \begin{cases}
+      x + 4y = 2\\
+      2x + 3y = 5
+    \end{cases}
+  \]
+\end{example}
+
+Below, the graph drawn in blue will represent the equation $2x + 3y = 5$. The graph in red is $x + 4y = 2$. 
+
+\begin{figure}[H]
+  \includegraphics[width=7cm]{system-of-eqs.png}
+  \centering
+  \caption{Graph of a system of equations}
+\end{figure}
+
+We can see that there exists a solution where $x=2.8$ and $y = -0.2$. Okay, let's try that again with 3 equations this time. 
+
+\begin{example}
+  \[
+    \begin{cases}
+      x + 4y = 2\\
+      2x + 3y = 5\\
+      2x + 3y = 4
+    \end{cases}
+  \]
+\end{example}
+
+\begin{figure}[H]
+  \includegraphics[width=7cm]{system-of-eqs(2).png}
+  \centering
+  \caption{Graph of a system of equations}
+\end{figure}
+
+Uh-oh. Now there's a problem. There's no common point of intersection! This indicates that the 3-equation system has \textit{no solutions}.
+
+This is a pretty intuitive way of looking at systems of equations and their solutions. But the geometry falls apart pretty quickly once we start using four or more variables. At that point, we need to pull out the big guns: algebra. 
 
 \subsection{Solving Through Elimination}
 
-\subsection{General Approach}
+Recall that an equation is a statement asserting the \textbf{equality} of two equations. Thus our new method will very obviously have to take advantage of one of the properties of equality. Consider the following property. 
+
+\begin{center}
+  Given a, b, and c, if $a = b$, then $a + c = b + c$. If $c = d$, then $a + c = b + d$. 
+\end{center}
+
+We can apply this to our system of equations. Let's take a look at the system below. 
+
+\begin{example}
+  \[
+    \begin{cases}
+      x + 4y = 2\\
+      2x + 3y = 5
+    \end{cases}
+  \]
+\end{example}
+
+Let $a = 2x + 3x$, and $b = 5$. Then $c = x + 4y$ and $d = 2$. Then, our $a + c = b + d$ would be 
+
+\begin{align*}
+  3x + 7y = 7
+\end{align*}
+
+This is not very useful for our purpose. But what if we look at $a - c = b - d$?
+
+\begin{align*}
+  x - y = 3
+\end{align*}
+
+We can apply the process one more time to look at $a - 2c = b - 2d$. 
+
+\begin{align*}
+  - 5y = 1
+\end{align*}
+
+Then, with a little bit of algebraic manipulation, we see that $y = -\frac{1}{5}$. Substituting this value into $x + 4y = 2$, we see that $x - \frac{4}{5} = 2$ and $x = 2 + \frac{4}{5} = 2.8$. 
+
+\textbf{tl;dr} So, going back to our initial system, we essentially took the first equation and subtracted it twice from the second equation in order to \textbf{eliminate} the $x$ variable. Of course, this process can be used to eliminate any variable(s) from an equation in a system. 
+
+\subsection{Word Problems}
+
+
+
+Let's start off with an example that I found from 1994 by a writer called Eisner \cite{eisner:1994}.
+
+Say Steve and Jacob held stock in a corporation at a ratio of 75 percent to 25 percent. Steve's stock was worth \$19500, while Jacob's stock was worth \$6500. 
 
 \subsection{Problems}
 
