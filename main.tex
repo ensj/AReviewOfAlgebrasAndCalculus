@@ -192,14 +192,12 @@ Recall that an equation is a statement asserting the \textbf{equality} of two eq
 
 We can apply this to our system of equations. Let's take a look at the system below. 
 
-\begin{example}
-  \[
-    \begin{cases}
-      x + 4y = 2\\
-      2x + 3y = 5
-    \end{cases}
-  \]
-\end{example}
+\[
+  \begin{cases}
+    x + 4y = 2\\
+    2x + 3y = 5
+  \end{cases}
+\]
 
 Let $a = 2x + 3x$, and $b = 5$. Then $c = x + 4y$ and $d = 2$. Then, our $a + c = b + d$ would be 
 
@@ -223,15 +221,98 @@ Then, with a little bit of algebraic manipulation, we see that $y = -\frac{1}{5}
 
 \textbf{tl;dr} So, going back to our initial system, we essentially took the first equation and subtracted it twice from the second equation in order to \textbf{eliminate} the $x$ variable. Of course, this process can be used to eliminate any variable(s) from an equation in a system. 
 
+Let's now take a look at the system of equations that didn't have a solution from before.
+
+\[
+  \begin{cases}
+    x + 4y = 2\\
+    2x + 3y = 5\\
+    2x + 3y = 4
+  \end{cases}
+\]
+
+By subtracting the second equation from the third, we get:
+
+\[
+  \begin{cases}
+    x + 4y = 2\\
+    2x + 3y = 5\\
+    0 = 4
+  \end{cases}
+\]
+
+Now it's very evident that 0 does not equal 4. This means that there is an \textbf{inconsistency} in the system. When this happens, a solution cannot exist. Let's take a look at the modified version of this same problem.
+
+\[
+  \begin{cases}
+    x + 4y = 2\\
+    2x + 3y = 5\\
+    2x + 3y = 5
+  \end{cases}
+\]
+
+Then, again subtracting the second equation from the third equation: 
+
+\[
+  \begin{cases}
+    x + 4y = 2\\
+    2x + 3y = 5\\
+    0 = 0
+  \end{cases}
+\]
+
+This time we got $0=0$. This statement is true regardless of the values for $x$ and $y$. Thus, there are infinitely many solutions to this system of equations. 
+
 \subsection{Word Problems}
 
+In this subsection, we won't go over the strict strategy of analyzing word problems and solving them. I'll assume that you already know this, and will instead use an example from Eisner \cite{eisner:1994} to demonstrate the use case of system of equations.
 
+Let's say say Steve held 100\% of stocks in a company at \$5000. The company decides to issue new stocks to Dave so that Dave would then own 5\% of the company. How much money would Dave's stocks be worth?
 
-Let's start off with an example that I found from 1994 by a writer called Eisner \cite{eisner:1994}.
+First we find the value for the new total value of outstanding stock.
 
-Say Steve and Jacob held stock in a corporation at a ratio of 75 percent to 25 percent. Steve's stock was worth \$19500, while Jacob's stock was worth \$6500. 
+\begin{align*}
+  S = 5000 + x
+\end{align*}
+
+Where $S$ is the value of the outstanding stock, and $x$ is the stock issued to Dave. We also know that Dave's stock is worth 5\%. 
+
+\begin{align*}
+  x = 0.05S
+\end{align*}
+
+We now have a system of equations.
+
+\[
+  \begin{cases}
+    S = 5000 + x\\
+    x = 0.05S\\
+  \end{cases}
+\]
+
+Rearranging the equations, we get the following.
+
+\[
+  \begin{cases}
+    S - x = 5000\\
+    -0.05S + x = 0\\
+  \end{cases}
+\]
+
+Using our process of elimination, we simply add the bottom equation to the top to isolate $S$. 
+
+\[
+  \begin{cases}
+    0.95S = 5000\\
+    -0.05S + x = 0\\
+  \end{cases}
+\]
+
+Then, $S = 5000 * \frac{1}{0.95} \approx 5263.16$, so Dave was awarded \$263.16 in total.  
 
 \subsection{Problems}
+
+
 
 \section{Polynomial Arithmetic}
 
