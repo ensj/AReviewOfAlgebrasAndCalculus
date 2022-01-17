@@ -21,11 +21,8 @@
 \newtheorem{approach}{Approach}
 \newtheorem{example}{Example}
 
-\newtheorem{exerciseinner}{Exercise}
-\newenvironment{exercise}[1]{%
-  \renewcommand\theexerciseinner{#1}%
-  \exerciseinner
-}{\endexerciseinner}
+\newtheorem{exercise}{exercise}[subsection]
+\renewcommand{\theexercise}{\arabic{exercise}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -69,7 +66,11 @@ So in this chapter, we'll explore some of the ways this beautiful subject gets u
 
 \section{Systems of Equations}
 
-What would a person do if they needed to find a common solution to a series of interconnected relationships? If the set of relationships mentioned happened to be a series of linear equations (which it very often is), then we have something called a \textit{System of Linear Equations}. Here we go over how to find the solutions to such problems. 
+One could probably argue that humans are a creature of relationships. A large part of our lives are dedicated to maintaining, creating, and getting rid of relationships. Thus, finding solutions to problems regarding such relationships is of utmost importance to many of us. This is absolutely true for mathematicians as well.
+
+As a matter of fact, what would a person do if they ended up having to find a solution to a problem regarding a set of interconnected relationships? This seems like a difficult problem to solve. It might be simple if they were dealing with one or two relationships, but as soon as this scales to, say, ten or twenty, it quickly gets out of hand. Thankfully, our team of mathematicians have been very hard at work, and they believe they reached a good solution. 
+
+If the set of relationships mentioned happened to be a series of linear equations (it very often is), then we have something called a \textit{System of Linear Equations}. This here is a system of relationships that our mathematicians have managed to completely characterized. Given a system of any linear equations, we can see whether or not it has a unique solution, no solution, or even infinitely many solutions! This section will explore how we can find such solutions.
 
 \subsection{Introduction to System of Linear Equations}
 
@@ -113,7 +114,7 @@ A system of linear equations is when there are more than one of such linear equa
 
 A principal interest concerning these systems of equations is to find a common solution satisfying all of these linear equations. For example, the solution to the above system would be the pair $x = 1, y = 1$. 
 
-It's essential to note here that you don't always have a unique solution like we did here for a system of equations. As a matter of fact, it's a pretty special thing for a system of equations to have a unique solution. Here are two trivial systems where one has no solutions, and the other has infinitely many solutions. Can you see which is which?
+It's essential to note here that you don't always have a unique solution like we did here for a system of equations. As a matter of fact, it's a pretty special thing for a system of equations to have a unique solution. Here are two trivial systems where one has no solutions, and the other has infinitely many solutions. I won't yet spoil which is which, but you are encouraged to think about what might be the correct answer. 
 
 \begin{example}
   \[
@@ -139,9 +140,11 @@ It would be nice if there was an algorithm we could work through in order to alw
 
 Barring the odd stuff like abstract and futurist art, it's often visual beauty that speaks out to us most vividly. Things aren't so different in mathematics. It's the visual proofs that makes the most intuitive sense to us. So, we shall start off our solution-finding journey from a geometric viewpoint.
 
-So long as we are working in up to three variables, we can graph any equation. Given one variable, we just plot a point in a line. Given two variables, we graph a line on a plane. Given three variables, we draw a plane in a 3-dimensional space. Given four variables... well, we don't have a way of graphing that visually. 
+So long as we are working in up to three variables, we can graph any equation. Given a one-variable equation such as $x = 5$, we see that this is just a point in a line. In fact, we intuitively see that this point, 5, is the solution to our equation. Given a two-variable equation like $-x + y = 6$, we may simply rearrange this equation to $y = x + 6$. We have put the equation in its point-intercept form. Upon graphing we see that every point in the line satisfies our two-variable equation.
 
-So given a system of equations, we'll do the most obvious thing and graph all of the equations. Each graph of an equation will represent the set of solutions to that specific equation. Then, finding the solution to our system is as simple as finding the point where all our equations intersect. Let's consider the following system.
+Three-variable equations are a tiny bit trickier. Take $x + y + z = 2$ for an example. You probably won't recognize this, but this is an equation for a \textit{plane} in three dimensional space. Then, we can conclude that every point belonging to the plane is a solution just as before with the two-variable equation. Upon going beyond with four, five variables, however, we lose the ability to nudge out a geometric solution for our equations. We simply aren't capable of graphing in four or more dimensions. You are more than welcome to try, however, if you feel like you have what it takes.
+
+In any case, let us come back to the topic of a system of equations. Given a system, we can simply graph every equation inside. Finding a common solution to our system is as simple as looking for a common point of intersection between all of our equations. Behold the following example.
 
 \begin{example}
   \[
@@ -160,7 +163,7 @@ Below, the graph drawn in blue will represent the equation $2x + 3y = 5$. The gr
   \caption{Graph of a system of equations}
 \end{figure}
 
-We can see that there exists a solution where $x=2.8$ and $y = -0.2$. Okay, let's try that again with 3 equations this time. 
+We can see that there exists a solution where $x=2.8$ and $y = -0.2$. Very cool. Let's try a different example now, where we take the previous system and add a new, third equation onto it. 
 
 \begin{example}
   \[
@@ -178,9 +181,32 @@ We can see that there exists a solution where $x=2.8$ and $y = -0.2$. Okay, let'
   \caption{Graph of a system of equations}
 \end{figure}
 
-Uh-oh. Now there's a problem. There's no common point of intersection! This indicates that the 3-equation system has \textit{no solutions}.
+Uh-oh. Now there's a problem. We can't find a common point of intersection between the three equations. This means that there isn't a single value of $x$ and $y$ that satisfies all three equations in the example. A situation like this is known as the system having \textbf{no solutions}.
 
-This is a pretty intuitive way of looking at systems of equations and their solutions. But the geometry falls apart pretty quickly once we start using four or more variables. At that point, we need to pull out the big guns: algebra. 
+Now, as I'm editing this book about three weeks after I first wrote this chapter, I'm starting to realize that I really don't want to open up desmos to create another visual example. We'll instead describe a very simple situation where a system will have an infinite number of solutions and call it a day. 
+
+Consider the following system of two equations.
+
+\begin{example}
+  \[
+    \begin{cases}
+      x = y\\
+      x = y
+    \end{cases}
+  \]
+\end{example}
+
+You'll notice (quite quickly, I'd hope) that the following system has two equivalent equations. What does that mean?
+
+Well, if you try graphing the two equations, you'll notice that you'd end up drawing two lines right over each other. Thus, if you select any point within one equation, that point will also belong to the other equation. This means that there are an infinite number of points of intersection within this system, otherwise known as the system having \textbf{infinite solutions}.
+
+Note that two equations don't necessarily have to be the same in order for them to have an infinite number of solutions! This may be true in the two-dimensional case, but it quickly falls apart in three-dimensions. Consider the case where you draw two different, intersecting planes in three dimensions. When you intersect two planes, will you always end up with one point of intersection? 
+
+The answer is a resounding no. If you're curious why, you are encouraged to take a piece of paper and try folding it by half. Now, imagining each folded section of your paper as a separate plane, you'll note that the intersection between your two planes will always be a singular line no matter how you fold your paper. A line contains an infinite number of points, so we see that two intersecting planes will always have an infinite number of solutions.
+
+As a matter of fact, a three variable system will always need at least three equations in order for it to have a unique solution. This is in fact true for any n-variable system of equations.  
+
+In any case, the geometric method of solving systems of equations is by far the most straightforward and easy to understand. But as hinted before, the geometry of all this falls apart as soon as we use more than three variables. Here is where we decide to pull out the big guns: algebra. 
 
 \subsection{Solving Through Elimination}
 
@@ -199,7 +225,7 @@ We can apply this to our system of equations. Let's take a look at the system be
   \end{cases}
 \]
 
-Let $a = 2x + 3x$, and $b = 5$. Then $c = x + 4y$ and $d = 2$. Then, our $a + c = b + d$ would be 
+Let $a = 2x + 3y$, and $b = 5$. Then $c = x + 4y$ and $d = 2$. Then, our $a + c = b + d$ would be 
 
 \begin{align*}
   3x + 7y = 7
@@ -237,7 +263,7 @@ By subtracting the second equation from the third, we get:
   \begin{cases}
     x + 4y = 2\\
     2x + 3y = 5\\
-    0 = 4
+    0 = 1
   \end{cases}
 \]
 
@@ -312,11 +338,101 @@ Then, $S = 5000 * \frac{1}{0.95} \approx 5263.16$, so Dave was awarded \$263.16 
 
 \subsection{Problems}
 
+For the next three problems, solve the given system of equations by graphing (you may use desmos). Indicate whether or not the system has solutions, no solutions, or infinite solutions.
 
+\begin{exercise} Find the solution to the following system, if there are any.
+  \[
+    \begin{cases}
+      2x + 3y = 10\\
+      x + x + y = 0\\
+      x + y = 2.5
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Find the solution to the following system, if there are any.
+  \[
+    \begin{cases}
+      x + 10y = 10\\
+      x + x + y = 0\\
+      x + y = 5
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Find the solution to the following system, if there are any.
+  \[
+    \begin{cases}
+      2x + 2y = 10\\
+      x + y = 5
+    \end{cases}
+  \]
+\end{exercise}
+
+The next five problems will be difficult to solve using graphs. Good luck! Do not use a calculator.
+
+\begin{exercise} Explain why the following system will have an infinite number of solutions.
+  \[
+    \begin{cases}
+      2x + 2y + z = 10\\
+      x + y + z = 5
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Solve the following system of equations.
+  \[
+    \begin{cases}
+      2x + 2y + z = 10\\
+      x + y + z = 5\\
+      y = 2
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Explain why the following system will have no solutions.
+  \[
+    \begin{cases}
+      2x + 2y + 2z = 15\\
+      x + y + z = 5\\
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Find the solution to the following system, if there are any.
+  \[
+    \begin{cases}
+      x - 3y + z = 2\\
+      3 x - 4 y + z = 0\\
+      2 y - z = 1
+    \end{cases}
+  \]
+\end{exercise}
+
+\begin{exercise} Find the solution to the following system, if there are any.
+  \[
+    \begin{cases}
+      2x + 2y + 3z = 15\\
+      x + 2y + 2z = 2\\
+      x + y + z = 5\\
+      x + z = 12
+    \end{cases}  
+  \]
+\end{exercise}
+
+Lastly, a few word problems for good measure... You may use a calculator to assist you.
+
+\begin{exercise}
+  These will come later, this took too much time.
+\end{exercise}
+
+\begin{exercise}
+  These will come later, this took too much time.
+\end{exercise}
 
 \section{Polynomial Arithmetic}
 
-Here we will cover polynomial multiplication, factorization, and division.
+
 
 \section{Polynomial Factoring}
 
