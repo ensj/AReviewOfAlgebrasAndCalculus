@@ -427,14 +427,124 @@ Lastly, a few word problems for good measure... You may use a calculator to assi
 \end{exercise}
 
 \begin{exercise}
-  You are distributing covid tests to your local community. Test A on average returns positive 30\% of the time, and test B returns positive 25\% of the time. You administered a total of 1080 tests throughout the day. If you got back 350 positive results, how much of test A and test B did you use?
+  To be scrapped, probably.
 \end{exercise}
 
 \section{Polynomial Arithmetic}
 
+Polynomial expressions are undoubtedly one of the most powerful ways of using mathematics. For something so simple, so many of our problems in life or science can be modelled with it! It is probably one of our best ways to approximate the behavior of something we are trying to analyze. In this section, we won't spend time going over what a polynomial is. I will assume that you already know what they look like. They are not too difficult to figure out, so finding an online resource on what polynomials are should be sufficient otherwise. 
+
+The central concern in this section regards situations where we have to consider the relationship of two different polynomial functions together. That is, how do we perform arithmetic between polynomials?
+
+Thankfully, this is a solved problem. It turns out that polynomials behave very, very nicely under basic arithmetic operations (we say they are \textit{closed} under addition and multiplation). They work fairly similarly to how we add, subtract, multiply and divide real numbers together, so this section shouldn't take long!
+
+\subsection{Polynomial Addition}
+
+First recall that variables of different powers cannot be added together. Consider the following expression.
+
+\[
+  x^2 + x^3
+\]
+
+There is no way to simplify the above expression further. Similarly, if the base (that is, the variables) of each term is different, we cannot add two terms together despite them having the same power. Let's take a look.
+
+\[
+  x^2 + y^2
+\]
+
+Again the above expression has no simplifications that could be applied to it. So given two polynomial expressions, how do we add the two together? It's simple, we \textbf{group like terms together}. Let's try adding the following two expressions. 
+
+\begin{align*}
+  x^2 + 2x + 1\\
+  x^3 + 3x^2 + x + 4
+\end{align*}
+
+Now, we add them.
+
+\[
+  (x^2 + 2x + 1) + (x^3 + 3x^2 + x + 4)
+\]
+
+Now that we have the expression in this form, we simply have to group them term-by-term to simplify. 
+
+\[
+  (x^3) + (x^2 + 3x^2) + (2x + x) + (1 + 4)
+\]
+
+We add like terms together, and the simplification is complete.
+
+\[
+  x^3 + 4x^2 + 3x + 5
+\]
+
+What of polynomial \textit{equations}, then? We'll briefly go over the process of adding two equations together. It is not so different from what we did in the previous section with adding two linear equations together. 
+
+\begin{align*}
+  x^2 + 2x + 1 = 10\\
+  x^3 + 3x^2 + x + 4 = 12
+\end{align*}
+
+Here we have the expressions from above turned into equations. When we add two polynomial equations, we simply add both sides of the equal signs together. 
+
+\[
+  (x^2 + 2x + 1) + (x^3 + 3x^2 + x + 4) = 10 + 12
+\]
+
+Then, everything simplifies like before.
+
+\[
+  x^3 + 4x^2 + 3x + 5 = 22
+\]
+
+And thus we have covered addition.
+
+\subsection{Polynomial Substraction}
+
+Subtraction works much in the same way as polynomial addition. Instead of adding, we just subtract! We'll take the two equations from before and try subtracting them from one another.
+
+\begin{align*}
+  x^2 + 2x + 1 = 10\\
+  x^3 + 3x^2 + x + 4 = 12
+\end{align*}
+
+The process is identical from here on out. 
+
+\begin{align*}
+  (x^2 + 2x + 1) - (x^3 + 3x^2 + x + 4) &= 10 - 12\\
+  (-x^3) + (x^2 - 3x^2) + (2x - x) + (1 - 4) &= -2\\
+  -x^3 - 2x^2 + x - 3 &= -2\\
+\end{align*}
+
+\subsection{Polynomial Multiplication}
+
+Polynomial multiplication is a little bit more difficult than normal multiplication. The best way to go about this is to realize that multiplication is distributive over addition. That is, given real numbers $a, b, c$, we can do the following.
+
+\[
+  a(b + c) = ab + ac
+\]
+
+Polynomial multiplication works a lot like this. Except that we're multiplying two expressions with multiple terms together. Let's consider the case with real numbers $a, b, c, d$.
+
+\begin{align*}
+  (a + b)(c + d) &= (a + b)c + (a + b)d\\
+  &= ac + bc + ad + bd
+\end{align*}
+
+As you saw above, you simply treat $(a + b)$ as a single element and proceed as before. Hopefully this isn't too difficult to think about. Let's try applying this to polynomial expressions.
+
+\begin{align*}
+  (x + 2)(x^2 + x + 1) &= (x + 2)x^2 + (x+2)x + (x+2)1\\
+  &= (x^3 + 2x^2) + (x^2 + 2x) + (x+2)\\
+  &= x^3 + 3x^2 + 3x + 2
+\end{align*}
+
+\subsection{Polynomial Factoring}
+
+You can think of polynomial factoring as a 
+
+\subsection{Quick Note}
 
 
-\section{Polynomial Factoring}
 
 \subsection{Problems}
 
