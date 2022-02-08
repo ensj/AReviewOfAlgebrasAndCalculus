@@ -420,14 +420,10 @@ The next five problems will be difficult to solve using graphs. Good luck! Do no
   \]
 \end{exercise}
 
-Lastly, a few word problems for good measure... You may use a calculator to assist you.
+You may use a calculator to assist yourself in the following problem.
 
 \begin{exercise}
   Steve sold 11 books and 13 pencils for 115 dollars total. If the books cost 10 dollars each, then how much do the pencils cost?
-\end{exercise}
-
-\begin{exercise}
-  To be scrapped, probably.
 \end{exercise}
 
 \section{Polynomial Arithmetic}
@@ -436,17 +432,27 @@ Polynomial expressions are undoubtedly one of the most powerful ways of using ma
 
 The central concern in this section regards situations where we have to consider the relationship of two different polynomial functions together. That is, how do we perform arithmetic between polynomials?
 
-Thankfully, this is a solved problem. It turns out that polynomials behave very, very nicely under basic arithmetic operations (we say they are \textit{closed} under addition and multiplation). They work fairly similarly to how we add, subtract, multiply and divide real numbers together, so this section shouldn't take long!
+Thankfully, this is a solved problem. It turns out that polynomials behave very, very nicely under basic arithmetic operations. That is, when we add and multiply polynomials together, we'll always get a polynomial back. This isn't necessarily the case for division, but we won't be using a lot of that to begin with, so it's cool!
 
 \subsection{Polynomial Addition}
 
-First recall that variables of different powers cannot be added together. Consider the following expression.
+Before anything else, let's go over the most basic way of classifying polynomials. This will be somewhat important to know!
+
+Recall that the \textit{degree} of a polynomial refers to the highest power a term has in a given polynomial.
 
 \[
-  x^2 + x^3
+  x^3 + x^2 + x + 1 = 0
 \]
 
-There is no way to simplify the above expression further. Similarly, if the base (that is, the variables) of each term is different, we cannot add two terms together despite them having the same power. Let's take a look.
+So, the degree of the above polynomial equation is 3. Now we can move on.
+
+Also recall that variables of different powers cannot be added together. Consider the following polynomial of degree 4.
+
+\[
+  x^2 + x^4
+\]
+
+There is no way to simplify the above expression further. That is, there is no way of being able to add $x^2$ and $x^4$ together. Similarly, if the base (that is, the variables) of each term is different, we cannot add two terms together despite them having the same power. Let's take a look.
 
 \[
   x^2 + y^2
@@ -509,11 +515,13 @@ Subtraction works much in the same way as polynomial addition. Instead of adding
 
 The process is identical from here on out. 
 
+\begin{example}
 \begin{align*}
   (x^2 + 2x + 1) - (x^3 + 3x^2 + x + 4) &= 10 - 12\\
   (-x^3) + (x^2 - 3x^2) + (2x - x) + (1 - 4) &= -2\\
   -x^3 - 2x^2 + x - 3 &= -2\\
 \end{align*}
+\end{example}
 
 \subsection{Polynomial Multiplication}
 
@@ -532,21 +540,136 @@ Polynomial multiplication works a lot like this. Except that we're multiplying t
 
 As you saw above, you simply treat $(a + b)$ as a single element and proceed as before. Hopefully this isn't too difficult to think about. Let's try applying this to polynomial expressions.
 
+\begin{example}
 \begin{align*}
   (x + 2)(x^2 + x + 1) &= (x + 2)x^2 + (x+2)x + (x+2)1\\
   &= (x^3 + 2x^2) + (x^2 + 2x) + (x+2)\\
   &= x^3 + 3x^2 + 3x + 2
 \end{align*}
+\end{example}
+
+Not too bad, right? In the end you're just breaking down the problem into easier subproblems and tackling them one at a time. 
 
 \subsection{Polynomial Factoring}
 
-You can think of polynomial factoring as a 
+Why is factoring polynomials important? Well, consider that you're trying to find the roots of a polynomial. A root of a polynomial is a value $x_0$ where, given a polynomial function $p(x)$, $p(x_0) = 0$. If you were to be told to find the roots of the polynomial $p(x) = x^2 - 24x + 144$, it wouldn't immediately be obvious how one might find them. But if the polynomial were to be given in the following form,
 
-\subsection{Quick Note}
+\[
+  p(x) = x^2 -24x + 144 = (x - 12)(x - 12) = 0
+\]
+
+It's immediately obvious to us that the root of our polynomial (of which there is only one) is 12. 
+
+But this does beg the question. Why in the world are we looking for solutions to polynomials that equal to 0? Why not anything else? Surely it's far more useful to compute solutions to polynomial functions when they equal any other constant! Well, consider the following example. Let's say you have a polynomial function $p(x)$ that models the behavior of, say, the value of a particular stock. Given that $x$ is a variable on time, you're looking for when $p(x) = 148$. But then consider this.
+
+\begin{align*}
+  p(x) &= 148\\
+  p(x) - 148 &= 0
+\end{align*}
+
+The function $p(x) - 148$ is still a polynomial! Moreover, we've reduced the problem into one where we only have to find the roots of this new polynomial. All we have to do from this point is to factor it!
+
+You can think of polynomial factoring as the polynomial version of division. In competitive mathematics, it's often required for you to know how to factor polynomial equations of up to three or four degrees. We'll just cover the case of quadratics (polynomials of degree two) here.
+
+\subsubsection{Difference of Squares}
+
+Really, the difference of squares technique is just a special case of factoring a quadratic polynomial. The reason why it's called such is because you're subtracting two square numbers from each other. Behold. Given two numbers a and b...
+
+\[
+  a^2 - b^2 = (a + b)(a - b)
+\]
+
+Feel free to multiply out the right hand side of the equation to verify that this is true. In any case, this relation obviously holds true for polynomials as well. Here is an example.
+
+\begin{example}
+\[
+  x^2 - 4 = (x + 2)(x - 2)
+\]
+\end{example}
+
+At this point, you might be wondering if this is only possible for quadratics. Not so! Let's think about this for a second.
+
+\[
+  x^4 - 4
+\]
+
+We simply realize here that $x^4$ is, in fact, a square of a number--- $x^2$! Thus we can use the difference of squares to nicely factor our polynomial.
+
+\begin{example}
+\[
+  x^4 - 4 = (x^2 + 2)(x^2 - 2)
+\]
+\end{example}
+
+We can note here that a number or a variable is a square so long as its power is divisible by 2. Here's a slightly bigger, a little bit more interesting example of the difference of squares in action.
+
+\begin{example}
+  \begin{align*}
+    x^8 - 256 &= (x^4 + 16)(x^4 - 16)\\
+    &= (x^4 + 16)(x^2 + 4)(x^2 - 4)\\
+    &= (x^4 + 16)(x^2 + 4)(x + 2)(x - 2)
+  \end{align*}
+\end{example}
+
+Pretty neat, huh? Now that's try completing the square instead of taking the difference of them.
+
+\subsubsection{Completing the Square}
+
+Completing the square is exactly like multiplying two polynomials together, but in reverse. Consider a previous example.
+
+\begin{align*}
+  (a + b)(c + d) &= (a + b)c + (a + b)d\\
+  &= ac + bc + ad + bd
+\end{align*}
+
+Changing this to a formula for quadratics, we get this. You might recognize this as the FOIL method.
+
+\begin{align*}
+  (x + a)(x + b) &= (x + a)x + (x + a)b\\
+  &= x^2 + ax + bx + ab\\
+  &= x^2 + (a + b)x + ab
+\end{align*}
+
+We could also have a case where we're multiplying the two same terms together. In this case computation becomes easier.
+
+\begin{align*}
+  (x + a)^2 &= (x + a)(x + a) \\ 
+  &= (x + a)x + (x + a)a\\
+  &= x^2 + ax + ax + a^2\\
+  &= x^2 + 2ax + a^2
+\end{align*}
+
+Reversing the process, then, is simple. Let's try it out on a few examples.
+
+\begin{example}
+  ex1
+\end{example}
+
+\begin{example}
+  ex2
+\end{example}
+
+\begin{example}
+  ex3
+\end{example}
+
+\subsubsection{Quadratic Formula}
+
+Starting here you might get the intuition that maybe factoring polynomials are all about recognizing patterns. You would be correct. 
+
+You may or may not be familiar with the following equation. Given a polynomial $ax^2 + bx + c = 0$, one can compute the roots of this polynomial with the following formula.
+
+\begin{align*}
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align*}
+
+It seems almost unbelievable that we have such a simple formula for computing the roots of any given polynomial. Just to convince ourselves that this is true, we'll try plugging it into our polynomial equation and verify that this actually works.
 
 
 
 \subsection{Problems}
+
+Writing this was an entire journey. Thankfully, writing these problems will be incredibly easy in comparison. 
 
 \section{Rational Exponents}
 

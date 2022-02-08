@@ -1,1 +1,2 @@
-/aux
+aux/*
+!aux/main.pdf
