@@ -613,7 +613,7 @@ We can note here that a number or a variable is a square so long as its power is
 
 Pretty neat, huh? Now that's try completing the square instead of taking the difference of them.
 
-\subsubsection{Completing the Square}
+\subsubsection{Completing the Square and Stuff}
 
 Completing the square is exactly like multiplying two polynomials together, but in reverse. Consider a previous example.
 
@@ -642,34 +642,142 @@ We could also have a case where we're multiplying the two same terms together. I
 Reversing the process, then, is simple. Let's try it out on a few examples.
 
 \begin{example}
-  ex1
+  First we factor $x^2 + 10x + 25$. Note $2 * 5 = 10$ and $5^2 = 10$. 
+  \begin{align*}
+    x^2 + 10x + 25 &= (x + 5)^2
+  \end{align*}
 \end{example}
 
 \begin{example}
-  ex2
+  Given $x^2 - 4x + 4$. Note $-2 -2 = -4$, and $(-2) * (-2) = 4$. 
+  \begin{align*}
+    x^2 -4x +4 &= (x - 2)^2
+  \end{align*}
+\end{example}
+
+In cases like these the patterns are fairly simple to identify. Now let's try identifying the factorizations for polynomials that are a bit dirtier than this.
+
+\begin{example}
+  First we factor $x^2 + 7x + 10$. Note $2 + 5 = 7$ and $2 * 5 = 10$. 
+  \begin{align*}
+    x^2 + 7x + 10 &= (x + 2)(x + 5)
+  \end{align*}
 \end{example}
 
 \begin{example}
-  ex3
+  Given $x^2 + 3x - 10$. Note $-2 + 5 = 3$, and $-2 * 5 = -10$. 
+  \begin{align*}
+    x^2 + 3x - 10 &= (x - 2)(x + 5)
+  \end{align*}
 \end{example}
+
+Unfortunately, the only way for you to ,be able to be able to do this quickly is to do many of them to build intuition. But the process isn't so bad! You'll quickly get used to it.
 
 \subsubsection{Quadratic Formula}
 
-Starting here you might get the intuition that maybe factoring polynomials are all about recognizing patterns. You would be correct. 
+But what if you have a polynomial that's crazy, such as $x^2 - x - 1$? How in the world do you find a root for a quadratic like this? Fortunately, quadratics are very cool in that we have a formula for finding their roots! This is the famous binomial formula.
 
-You may or may not be familiar with the following equation. Given a polynomial $ax^2 + bx + c = 0$, one can compute the roots of this polynomial with the following formula.
+Given a polynomial $ax^2 + bx + c = 0$, one can compute the roots of this polynomial with the following.
 
 \begin{align*}
   x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \end{align*}
 
-It seems almost unbelievable that we have such a simple formula for computing the roots of any given polynomial. Just to convince ourselves that this is true, we'll try plugging it into our polynomial equation and verify that this actually works.
+Using this formula, we find that the roots of our polynomial is $\frac{1 + \sqrt{5}}{2}$ and $\frac{1 - \sqrt{5}}{2}$. This is the famous golden ratio. It is not a mistake that it appears as a root of our polynomial. We will not go over why in this text, though. 
 
+It seems almost unbelievable that we have such a simple formula for computing the roots of any given polynomial. Indeed, this is not a normal occurence at all. We have formulas for finding roots of degree 1, 2, 3 and 4 polynomials. However, mathematicians Paolo Ruffini and Niels Henrik Abel proved that no such a formula exists for polynomials of degree 5 or higher.
 
+The derivation of this formula is actually pretty simple. We'll be using a shorter, less intuitive version of it just for the sake of saving space. The derivation is provided courtesy of Larry Hoehn \cite{hoehn:1975}.
+
+Provided $ax^2 + bx + c = 0$, we start off by multiplying both sides of the polynomial by $4a$. So now we have
+
+\[
+  4a^2x^2 + 4abx + 4ac = 0
+\]
+
+We rearrange.
+
+\[
+  4a^2x^2 + 4abx = -4ac
+\]
+
+Add $b^2$ to both sides.
+
+\[
+  4a^2x^2 + 4abx + b^2 = b^2-4ac
+\]
+
+Notice the left side of the equation can be factored.
+
+\[
+  (2ax + b)^2 = b^2-4ac
+\]
+
+We can take the square root of both sides.
+
+\[
+  2ax + b = \pm\sqrt{b^2-4ac}
+\]
+
+Now it's just a simple matter of isolating $x$ on the left side.
+
+\begin{align*}
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align*}
+
+Normally, it takes too much work to compute the roots of a quadratic using a formula as compared to factoring using intuition to find the roots. But when your intuition fails, the formula can come in to save the day.
 
 \subsection{Problems}
 
-Writing this was an entire journey. Thankfully, writing these problems will be incredibly easy in comparison. 
+Writing this was an entire journey. Thankfully, writing these problems will be incredibly easy in comparison.
+
+\begin{exercise}
+  Add $x^2 + x - 10$ and $10x^2 + 3x + 10$.
+\end{exercise}
+
+\begin{exercise}
+  Add $x^5 + x^4 + x^3 + 1$ and $3x^4 + x^2 + 10$.
+\end{exercise}
+
+\begin{exercise}
+  Subtract $5x^3 - x^2 + 5x + 10$ from $x^3 + x^2 - 3x + 10$.
+\end{exercise}
+
+\begin{exercise}
+  Multiply $x + 1$ with $x^2 + 2x + 5$.
+\end{exercise}
+
+\begin{exercise}
+  Multiply $x^2 + x + 1$ with $2x^3 + 2x + 5$.
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^2 + 6x + 9$ into its lowest terms.
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^8 - 49$ into its lowest terms.
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^2 - 10x + 24$ into its lowest terms.
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^2 + 11x + 30$ into its lowest terms.
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^2 + 3x + 3$ into its lowest terms. Use the quadratic formula. 
+\end{exercise}
+
+\begin{exercise}
+  Factor $x^2 + 2x + 11$ into its lowest terms. Use the quadratic formula. 
+\end{exercise}
+
+\begin{exercise}
+  Use the quadratic formula to find the roots of $3x^2 + 2x + 10$.
+\end{exercise}
 
 \section{Rational Exponents}
 
