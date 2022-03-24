@@ -5,22 +5,37 @@ Before we dive straight into algebra, we'll start by covering some prerequisites
 
 \section{On The Topic of Functions}
 
-Speaking boldly, a function relates one set to the other. Speaking simply, a function is a machine that takes in an input value and outputs a value. In this section, we'll take a very brief look at what functions actually are, and take a look at what type of functions we'll be exploring from now on. 
+Functions, in a way, is math's most primal and powerful tool. It's a representation of how man first began to relate one thing with another. For example, how do we measure how a plant's rate of growth relates to the number of days since it's been planted? How do we model the price of a good vs. the amount of it? How do we figure out how the value of one quantity effects the value of another? The use of functions is an excellent way of describing all of these things. 
+
+It becomes increasingly obvious why functions matter so much in calculus with this knowledge. Calculus is the study of change between two quantities. Functions are an integral (ha!) part of studying calculus itself. But that's only a very small facet of why functions are so important. This section will attempt to illuminate that point. 
 
 \subsection{Definition of a Function}
 
+Casually speaking, a function $f$ is a relation from set $A$ to $B$ where each element in $A$ is associated with exactly one element in $B$. You can think of it as a pairing of some sort. For every element $a$ in A, there exists exactly one element $b$ in $B$ such that the pair $(a, b)$ exists. Note that while it's important that each $a$ has exactly one $b$ assigned to it, the element $b$ has no such requirement. There may exist multiple elements of $A$ that are associated to the same element in $B$. 
+
+Let's try to define this a little more rigorously. 
+
 \begin{definition}
-A function $f$ from set $X$ to set $Y$ assigns elements of $Y$ to specific elements of $X$. Thus, for an element $y \in Y$ (the $\in$ notates that $y$ is an element of $Y$), there may exist an $x \in X$ such that $f(x) = y$. 
+A function $f$ from set $X$ to set $Y$ assigns elements of $X$ to exactly one element of $Y$. Thus, for any element $x \in X$ (the $\in$ notates that $y$ is an element of $Y$), there exists a $y \in Y$ such that $f(x) = y$. 
 \end{definition}
 
 Thus, every value in $X$ has a corresponding value, mapped by $f$, in $Y$. The input set $X$ is called the \textit{domain}. The output set $Y$ is the \textit{image of f} or \textit{range}.
 
-Oftentimes, a function may be notated as shown below. I trust that I don't have to explain what this means, since I just did so.
+You will notice that while every value in $X$ must map to something, the values of $Y$ has no such requirement. It's not necessary that $f^{-1}(y) \in X$ exist for every $y \in Y$. Here's a simple example that you might be familiar with.
+
+\begin{definition}
+    A \textbf{constant function} $f: X \longrightarrow Y$ is a function such that for a single $y \in Y$, $f(x) = y$ for all $x \in X$. 
+\end{definition}
+
+A quick example might be a function from the real numbers to the real numbers where $f(x) = 0$ for all $x$.
+
+As you might have noticed above, functions often get notated with an arrow. We say that $f$ maps elements of $X$ into $Y$.  
+
 \begin{align*}
     f: X \longrightarrow Y
 \end{align*}
 
-X and Y can be pretty much anything as long as it is a proper set. Here are some functions that you might find pretty fun to think about. 
+X and Y can be pretty much anything as long as it is a proper set. We won't get into what a proper set is in this text, so just assume a set is a collection of \textit{things} in general. In any case, here are some functions that you might find pretty fun to think about. 
 
 \begin{example}
 The function $f: \R \longrightarrow \{0, 1\}$, where $f$ maps rational numbers to 1, and irrational numbers to 0. Here $\R$ means the set of real numbers.
@@ -32,7 +47,121 @@ The function $f(x) = \sin(x)$. The domain of $f$ is the set of real numbers, $\R
 
 A requirement for a domain of a function is that \textit{every value of the domain} must be accepted by the function. The image of a function has the requirement that every value in the range must be an output of some input value of the function. 
 
-There is a reason why we defined functions as an assignment of the elements of $Y$ to the elements of $X$. Functions have a specific requirement that an input value cannot map to two values at once, you may recall the vertical line test as an example of this requirement. If a graph of a function has 2 y values on the same x value, it is not a function at all.
+\subsection{Surjection, Injection, Bijection}
+
+This subsection isn't required for knowing algebra or calculus, but it does help you understand why functions are such a powerful tool in mathematics. Functions not only describe the relationship between different quantities, it also describes the structural similarities between the domain and codomain as well. We'll explore the simplest--- yet one of the most interesting--- features of functions here.
+
+The types of functions we will look at today are surjective functions, injective functions, and ultimately bijective functions. Let's take a look at surjective functions first.
+
+\begin{definition}
+    A \textbf{surjective} (or an onto) function is a function $f: X \longrightarrow Y$ such that for every $y \in Y$, there exists an $x \in X$ such that $f(x) = y$.
+\end{definition}
+
+You can understand this to say that every element in the range has an inverse in X. Or equivalently, that $f(X) = Y$. An easy way to remember the behavior of onto functions is to say that \textit{``Every bullet hits a target.''} 
+
+\begin{figure}[H]
+    \includegraphics[width=4cm]{surjection.png}
+    \centering
+    \caption{Example of a surjection (Wikipedia)}
+  \end{figure}
+
+Note on the above figure that a surjection can only occur when the size fo the domain is either bigger than or equal to the codomain. This should be obvious from the definition as well.
+
+\begin{definition}
+    An \textbf{injective} (or one-to-one) function is a function $f$ such that whenever $f(x_1) = f(x_2)$, $x_1 = x_2$.
+\end{definition}
+
+Simply put, a one-to-one function maps all elements of its domain to a unique element in the codomain. The way to remember this is a bit weird, but the way to describe these functions is to say that \textit{``Every bullet hits a unique target.''}
+
+\begin{figure}[H]
+    \includegraphics[width=4cm]{injection.png}
+    \centering
+    \caption{Example of an injection (Wikipedia)}
+  \end{figure}
+
+Note on the above figure that an injection can only occur when the codomain is larger than or equal to the domain. Now, we look at bijections.
+  
+\begin{definition}
+    A \textbf{bijective} function is a function that is both injective and surjective.
+\end{definition}
+
+\begin{figure}[H]
+    \includegraphics[width=4cm]{bijection.png}
+    \centering
+    \caption{Example of a bijection (Wikipedia)}
+  \end{figure}
+
+A bijective function by definition makes it so that every element in the codomain has exactly one inverse in the domain. This in turn makes it so that the inverse of the bijective function is a bijective function as well--- hopefully the reason why is pretty evident from the above figure!
+
+Quite obviously, there are functions that are neither injective or surjective as well. 
+
+\begin{figure}[H]
+    \includegraphics[width=4cm]{neitherjection.png}
+    \centering
+    \caption{Example of neither (Wikipedia)}
+  \end{figure}
+
+Note that bijections will necessarily require that the domain and the codomain have the same number of elements. 
+
+The neat thing here is that this property of bijections does not necessarily end with finite sets. Two infinite sets are said to have the same size, or in this case \textit{cardinality} if there exists a bijection between them. Surprisingly, there are infinite sets that seem bigger or smaller than each other that actually share the same cardinality! But perhaps the really shocking thing here is that there exists infinite sets that are either bigger or smaller than the other. Let's take a look at a few examples.
+
+\begin{definition}
+    A set $A$ has cardinality $\aleph_0$ (pronounced ``aleph null'' or ``aleph naught'') if there exists a bijection between it and the natural numbers $\mathbb{N}$.
+\end{definition}
+
+\begin{example}
+    $\mathbb{N}$ has cardinality $\aleph_0$. 
+\end{example}
+
+\begin{example}
+    The set of integers $\mathbb{Z}$ has cardinality $\aleph_0$. The bijection $f: \mathbb{Z} \longrightarrow \mathbb{N}$ is given by
+    \[
+        f(z) = \begin{cases}
+            2z + 2 & \text{if }z \geq 0\\
+            -2z - 1 & \text{if }z < 0
+        \end{cases}
+    \]
+\end{example}
+
+\begin{example}
+    The set of positive rational numbers $\mathbb{Q}_+$ has cardinality $\aleph_0$. The graphical ``proof'' is quite beautiful, so that is what will be posted here. 
+
+    \[
+    \begin{tikzpicture}
+        \foreach \x in {0,...,4}
+            \foreach \y in {0,...,4} 
+                \pgfmathsetmacro{\numerator}{int(\x+1)}
+                \pgfmathsetmacro{\denominator}{int(\y+1)}
+                \node (\x\y) at (1.5*\x,-1.5*\y) {$\frac{\numerator}{\denominator}$};
+
+        \foreach \z in {0,...,4}{
+            \node (5\z) at (7.5, -1.5*\z) {$\dots$};
+            \node (\z5) at (1.5*\z, -7.5) {$\vdots$};
+        }
+
+        \draw[->] (01)--(02);
+        \draw[->] (03)--(04);
+
+        \foreach \x in {0, 2, 4}{
+            \pgfmathsetmacro{\xi}{int(\x+1)}
+            \draw[->] (\x0)--(\xi0);
+        }
+
+        \draw[->] (10)--(01);
+        \draw[->] (02)--(11)--(20);
+        \draw[->] (30)--(21)--(12)--(03);
+        \draw[->] (04)--(13)--(22)--(31)--(40);
+        \draw[->] (50)--(41)--(32)--(23)--(14)--(05);
+        \draw[->] (15)--(24)--(33)--(42)--(51);
+        \draw[->] (52)--(43)--(34)--(25);
+        \draw[->] (35)--(44)--(53);
+    \end{tikzpicture}
+    \]
+\end{example}
+
+Now, the rather shocking part of all of this is that the real numbers actually have a bigger cardinality than the natural numbers. No matter how you try to ``count'' them like the above examples, you will always have a real number left over. I will not be providing a proof of this here, as it will require going over something called the power set.
+
+Another interesting consequence results from the fact that the real numbers consist of rational and irrational numbers. The rationals, though not strictly stated, also have a cardinality of $\aleph_0$ (can you see why?). This implies that what makes the real numbers bigger than the naturals is the irrational numbers, which leads us to realizing that there are many more irrational numbers than rational numbers.
 
 \subsection{Functions in Algebra and Calculus}
 
@@ -50,7 +179,9 @@ $f(x) = \cos(x)$
 $f(x) = e^x$
 \end{example}
 
-In multivariable calculus, we deal with functions of the form $f : \R^n \longrightarrow \R^m$. 
+It's very obvious to note, but the reason why it's called single-variable calculus is because our functions depend on the single variable $x$ in all of the above functions. 
+
+On the other hand, in multivariable calculus, we deal with functions of the form $f : \R^n \longrightarrow \R^m$. 
 \begin{align*}
     f(x_1, x_2, ..., x_n) = (y_1, y_2, ..., y_m)
 \end{align*}
@@ -110,7 +241,46 @@ Thus we have characterized the four arithmetic operations in the rationals. Let'
 
 \section{Irrational Numbers}
 
-Content under construction.
+Irrational numbers are numbers that are simply unable to be represented as a fraction. They can be estimated, sure, but you'll never have a nice, whole representation of what an irrational number looks like on paper. Unless you use symbols like $e$ or $\pi$. But that's kind of cheating. 
+
+This section won't necessarily cover the arithmetic of irrational numbers. We know we can add, multiply irrationals, and that's kind of enough. Instead, this section will try to convince you that irrational numbers are a very real thing (hence why they're a part of the real numbers). 
+
+What does it even mean to be unable to represent a number wholely? You may have heard before that the square root of 2 is an irrational number. Why don't we prove that it actually is?
+
+The following proof follows a strategy known as \textit{reductio ad absurdum}. That is, we take a proposition that we are trying to prove, negate it (take the opposite of that statement), and prove that this negation is impossible. This is also known as a proof by contradiction. 
+
+\begin{theorem}
+    $\sqrt{2}$ is irrational.
+\end{theorem}
+\begin{proof}
+    This is a proof by contradiction, so we first negate our proposition and assume that $\sqrt{2}$ is \textbf{not} irrational.
+
+    Now we attempt to show that this is a silly assumption to have. Assume that $\sqrt{2}$ is indeed rational, and can be represented with the \textbf{irreducible} fraction $\frac{a}{b}$. That means the numbers $a$ and $b$ have no common factors. Then,
+
+    \begin{align}
+        \sqrt{2}^2 &= 2\\
+        \left(\frac{a}{b}\right)^2 &= 2 \\
+        \frac{a^2}{b^2} &= 2\\
+        a^2 &= 2b^2
+    \end{align}
+
+    We see here that $a^2$ is even, and $a$ is even as well as a result. That means $a = 2k$ for some integer $k$. Let's substitute that for (1.4) above.
+
+    \begin{align}
+        a^2 &= 2b^2\\
+        (2k)^2 &= 2b^2\\
+        4k^2 &= 2b^2\\
+        2k^2 &= b^2
+    \end{align}
+
+    What happened here? We just proved that $b^2$ is also even, and by association $b$ is also even. Thus, we know that both $a$ and $b$ are even numbers... 
+
+    But hold on. Didn't we say in the beginning of this proof that $a$ and $b$ must have no common factors? 
+
+    Aha! A contradiction! Thus, it is impossible that $\sqrt{2}$ can be a rational number, implying that it is irrational instead.
+\end{proof}
+
+The beautiful proof above was actually a work of Aristotle. Hopefully it was a good enough proof on the existence of irrationals. 
 
 \section{Notes on Approximation}
 

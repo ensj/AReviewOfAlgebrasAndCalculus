@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{tikz}
 
 \graphicspath{ {./images/} }
 
@@ -802,11 +803,7 @@ What does this mean? Let's step back for a second and think about roots again. T
 Let's take a look at a couple of examples.
 
 \begin{example}
-  
-\end{example}
-
-\begin{example}
-  
+  $\sqrt[3]{27^2} = 27^{2/3} = (\sqrt[3]{27})^2 = 3^2 = 9$
 \end{example}
 
 \begin{example}
@@ -817,15 +814,17 @@ At this point you'll start to wonder how on earth people actually compute number
 
 From this point on, you can think of this as recreational mathematics. Even if you don't necessarily understand it, that's fine! Think of this like a very short 3-minute show that shows you how math typically works under the hood. 
 
-We'll take a look at two methods. One that uses very basic mathematics to go "searching" for our desired number, and one method that makes use of exponential rules and logarithms to compute it. 
+We'll take a look at two methods. One that uses very basic mathematics to go ``searching'' for our desired number, and one method that makes use of exponential rules and logarithms to compute it. 
 
-\subsection{Bisection Method for Computing Rational Exponents}
+\subsection{Shifting $n$-th root algorithm}
 
-Let's take a look at the problem one more time. Given $x, a, b$ all rational, we're trying to find some number $s$ such that $x^{a/b} = s$.
+Let's take a look at the problem one more time. Given $x, a, b$ all rational, we're trying to find some number $s$ such that $x^{a/b} = s$. 
 
-\begin{align*}
-  lol
-\end{align*}
+We start off by trying to divide this problem into smaller subproblems that are easier to solve. First, we realize that taking the simple power of numbers--- such as $x^a$--- is actually very fast! It's just multiplication, which we are fairly good at. So we can ignore that for now.
+
+The problem comes when we try to compute $x^{1/b}$, or the $b$-th root of $x$. Thankfully, the ancients have crafted a very nice method that's similar to long division in order to compute this number. 
+
+The following algorithm is known as the \textbf{Shifting $n$-th root algorithm}. 
 
 \subsection{Logarithmic Method for Computing Rational Exponents}
 
